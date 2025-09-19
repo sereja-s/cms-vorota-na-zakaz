@@ -102,120 +102,43 @@
 	</div>
 </section>
 
-<section class="page__products products" id="catalog">
-	<div class="products__container container">
-		<h1 class="about__info-title section-about__title">Изготовим и установим забор, ворота, навес, беседку в Донецке, Макеевке, ДНР</h1>
-		<div class="products__items">
-			<article class="products__item item-product">
+<?php if (!empty($this->menu['catalog'])) : ?>
 
-				<a href="" class="item-product__image _ibg">
-					<picture>
-						<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/ворота распашные-3.jpg"
-							alt="Syltherine">
-					</picture>
-				</a>
-				<div class="item-product__body">
-					<div class="item-product__content">
-						<h3 class="item-product__title">Ворота</h3>
-						<div class="item-product__text">- ОТКАТНЫЕ<br>- РАСПАШНЫЕ</div>
-					</div>
-					<div class="item-product__prices">
-						<div class="item-product__price">от 95000 руб.</div>
+	<section class="page__products products" id="catalog">
+		<div class="products__container container">
+			<h1 class="about__info-title section-about__title">Изготовим и установим забор, ворота, навес, беседку в Донецке, Макеевке, ДНР</h1>
+			<div class="products__items">
 
-					</div>
+				<?php foreach ($this->menu['catalog'] as $item) : ?>
 
-				</div>
-			</article>
+					<article class="products__item item-product">
 
-			<article class="products__item item-product">
-
-				<a href="" class="item-product__image _ibg">
-					<picture>
-						<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/забор.jpg"
-							alt="Syltherine">
-					</picture>
-				</a>
-				<div class="item-product__body">
-					<div class="item-product__content">
-						<h3 class="item-product__title">Заборы</h3>
-						<div class="item-product__text">- КОВАННЫЕ<br>- ИЗ СЕТКИ (с оцинкованным или полимерным покрытием)</div>
-					</div>
-					<!-- <div class="item-product__prices">
-								<div class="item-product__price">2500 руб. Без предоплат.</div>
-								
+						<div href="" class="item-product__image _ibg">
+							<picture>
+								<img src="<?= $this->img($item['img']) ?>"
+									alt="<?= $item['name'] ?>">
+							</picture>
+						</div>
+						<div class="item-product__body">
+							<div class="item-product__content">
+								<h3 class="item-product__title"><?= $item['name'] ?></h3>
+								<div class="item-product__text"><?= $item['content'] ?></div>
+							</div>
+							<!-- <div class="item-product__prices">
+								<div class="item-product__price">от 95000 руб.</div>
 							</div> -->
 
-				</div>
-			</article>
+						</div>
+					</article>
 
-			<article class="products__item item-product">
+				<?php endforeach; ?>
 
-				<a href="" class="item-product__image _ibg">
-					<picture>
-						<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/беседка.webp"
-							alt="Syltherine">
-					</picture>
-				</a>
-				<div class="item-product__body">
-					<div class="item-product__content">
-						<h3 class="item-product__title">Беседки</h3>
-						<div class="item-product__text">БЕСДКИ ИЗ МЕТАЛЛА</div>
-					</div>
-					<!-- <div class="item-product__prices">
-								<div class="item-product__price">2500 руб. Без предоплат.</div>
-								
-							</div> -->
-
-				</div>
-
-			</article>
-			<article class="products__item item-product">
-
-				<a href="" class="item-product__image _ibg">
-					<picture>
-						<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/Навес.jpg"
-							alt="Syltherine">
-					</picture>
-				</a>
-				<div class="item-product__body">
-					<div class="item-product__content">
-						<h3 class="item-product__title">Навесы</h3>
-						<div class="item-product__text">Мы изготавливаем и устанавлваем навесы любой сложности, любого назначения и размера</div>
-					</div>
-					<!-- <div class="item-product__prices">
-								<div class="item-product__price">2500 руб. Без предоплат.</div>
-								
-							</div> -->
-
-				</div>
-
-			</article>
-			<article class="products__item item-product">
-
-				<a href="" class="item-product__image _ibg">
-					<picture>
-						<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/козырёк.webp"
-							alt="Syltherine">
-					</picture>
-				</a>
-				<div class="item-product__body">
-					<div class="item-product__content">
-						<h3 class="item-product__title">Козырьки</h3>
-						<div class="item-product__text">изготовим и установим</div>
-					</div>
-					<!-- <div class="item-product__prices">
-								<div class="item-product__price">2500 руб. Без предоплат.</div>
-								
-							</div> -->
-
-				</div>
-
-			</article>
+			</div>
 
 		</div>
+	</section>
 
-	</div>
-</section>
+<?php endif; ?>
 
 <section class="section-about" style="margin: 50px 0;">
 	<div class="container section-contacts__container">

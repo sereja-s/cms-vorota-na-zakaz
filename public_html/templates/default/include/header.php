@@ -88,15 +88,19 @@
 						</li>
 					</ul>
 					<ul class="menu menu__burger">
-						<li class="menu-item burger__item">
+						<!-- <li class="menu-item burger__item">
 							<a href="#" class="menu-link">Главная</a>
-						</li>
+						</li> -->
 						<li class="menu-item burger__item">
 							<a href="#about" class="menu-link">О нас</a>
 						</li>
-						<li class="menu-item burger__item">
-							<a href="#catalog" class="menu-link">Каталог</a>
-						</li>
+
+						<?php if (!empty($this->menu['catalog'])) : ?>
+							<li class="menu-item burger__item">
+								<a href="#catalog" class="menu-link">Каталог</a>
+							</li>
+						<?php endif; ?>
+
 						<li class="menu-item burger__item">
 							<a href="#gallery" class="menu-link">Ворота, заборы</a>
 						</li>
@@ -128,9 +132,13 @@
 							<li class="menu-item">
 								<a href="#about" class="menu-link">О нас</a>
 							</li>
-							<li class="menu-item">
-								<a href="#catalog" class="menu-link">Каталог</a>
-							</li>
+
+							<?php if (!empty($this->menu['catalog'])) : ?>
+								<li class="menu-item">
+									<a href="#catalog" class="menu-link">Каталог</a>
+								</li>
+							<?php endif; ?>
+
 							<li class="menu-item">
 								<a href="#gallery" class="menu-link">Ворота, заборы</a>
 							</li>

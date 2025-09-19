@@ -20,7 +20,9 @@
 					<!-- <h6 class="footer__services-title">О нас</h6> -->
 					<ul style="font-size: 1.5em;" class="footer__services-list">
 						<li>О нас</li>
-						<li>Каталог</li>
+						<?php if (!empty($this->menu['catalog'])) : ?>
+							<li>Каталог</li>
+						<?php endif; ?>
 						<li>Ворота, заборы</li>
 						<li>Беседки, навесы</li>
 					</ul>
