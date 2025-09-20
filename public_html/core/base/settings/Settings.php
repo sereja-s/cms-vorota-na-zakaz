@@ -81,14 +81,14 @@ class Settings
 	private $projectTables = [
 		'sales' => ['name' => 'Акции'],
 		'catalog' => ['name' => 'Каталог (меню)'],
-		//'filters' => ['name' => 'Фильтры'],
-		'goods' => ['name' => 'Товары'],
-		'phones' => ['name' => 'Телефоны'],
-		'emails' => ['name' => 'Эл. почты'],
-		'address' => ['name' => 'Адреса'],
-		//'news' => ['name' => 'Новости'],
-		'information' => ['name' => 'Информация (меню)'],
 		'settings' => ['name' => 'Настройки (о сайте)'],
+		//'filters' => ['name' => 'Фильтры'],
+		//'goods' => ['name' => 'Товары'],
+		'phones' => ['name' => 'Телефоны'],
+		//'emails' => ['name' => 'Эл. почты'],
+		//'address' => ['name' => 'Адреса'],
+		//'news' => ['name' => 'Новости'],
+		//'information' => ['name' => 'Информация (меню)'],		
 		'questions' => ['name' => 'Вопросы'],
 		'advantages' => ['name' => 'Преимущества'],
 		'socials' => ['name' => 'Соц.сети'],
@@ -105,8 +105,8 @@ class Settings
 	// свойство: массив шаблонов
 	private $templateArr = [
 		// массив вида: 'название шаблона' => массив с полями для которых должен быть подключен соответствующий шаблон
-		'text' => ['name', 'phone', 'email', 'alias', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'price_m_opt', 'login', 'password'],
-		'textarea' => ['content', 'keywords', 'address', 'description', 'short_content'],
+		'text' => ['name', 'key_words', 'admin_name', 'admin_inn', 'top_title', 'catalog_title', 'foto_title', 'foto_title_2', 'phone', 'email', 'alias', 'telegram_alias', 'external_alias', 'sub_title', 'discount', 'price', 'price_m_opt', 'login', 'password'],
+		'textarea' => ['content', 'keywords', 'catalog_subtitle', 'address', 'work_time', 'description', 'short_content'],
 		'radio' => ['visible', 'show_top_menu', 'hit', 'new'/*'sale', 'hot'*/],
 		'checkboxlist' => ['filters', 'filters_test'], // указали, что хотим подключить фильтры к связанной таблице: 
 		// товары (они прописаны в массиве: в свойстве: private $manyToMany)
@@ -121,14 +121,23 @@ class Settings
 	// св-во, позволяющее переводить поля административной панели из файла настроек
 	private $translate = [
 		// каждое поле тоже представляет собой массив, в котором можно указать два элемента (название элемента, комментарий элемента)
-		'name' => ['Название', '(Не более 120 символов)'],
-		'keywords' => ['Ключевые слова', '(Не более 75 символов)'],
+		'name' => ['Название'],
+		'admin_name' => ['Ваше ФИО'],
+		'admin_inn' => ['Ваш ИНН'],
+		'top_title' => ['Заголовок в вврху'],
+		'catalog_title' => ['Заголовок каталога'],
+		'catalog_subtitle' => ['Подзаголовок каталога'],
+		'foto_title' => ['Заголовок (фото 1-ого блока)'],
+		'foto_title_2' => ['Заголовок (фото 2-ого блока)'],
+		'key_words' => ['Слова для поиска'],
+		'keywords' => ['Ключевые слова'],
 		'content' => ['Описание', '(Текстовая часть, фотографии, картинки к описанию)'],
 		'description' => ['SEO описание'],
-		'phone' => ['Телефон'],
+		'phone' => ['Телефон (главный)'],
 		'email' => ['Электронная почта'],
 		'address' => ['Адрес'],
 		'alias' => ['Ссылка ЧПУ'],
+		'telegram_alias' => ['Ссылка на telegram (главный)'],
 		'external_alias' => ['Внешняя ссылка'],
 		'img' => ['Изображение', '(Одно)'],
 		'main_img' => ['Картинка', '(для ссылки на сайт)'],
@@ -139,7 +148,7 @@ class Settings
 		'sub_title' => ['Подзаголовок'],
 		'short_content' => ['Краткое описание'],
 		'img_years' => ['Изображение количества лет на рынке'],
-		'number_of_years' => ['год'],
+		'work_time' => ['График работы'],
 		'hit' => ['Хит продаж'],
 		'sale' => ['Акция'],
 		'new' => ['Новинка'],
@@ -150,8 +159,7 @@ class Settings
 		'parent_id' => ['Выбрать категорию', '(К чему относится?)'],
 		'promo_img' => ['Изображение для главной страницы'],
 		'login' => ['Логин'],
-		'password' => ['Пароль']
-		//'filters' => ['Категории фильтров']
+		'password' => ['Пароль'],
 	];
 
 	// св-во, в котором будут храниться значения для input type radio (кнопок переключателей (да, нет и т.д.))
@@ -193,8 +201,8 @@ class Settings
 		'discount' => ['int' => true],
 		'login' => ['empty' => true, 'trim' => true],
 		'password' => ['crypt' => true, 'empty' => true],
-		'keywords' => ['count' => 400, 'trim' => true],
-		'description' => ['count' => 255, 'trim' => true]
+		'keywords' => ['count' => 1400, 'trim' => true],
+		'description' => ['count' => 400, 'trim' => true]
 	];
 
 	// Объявим метод, который будет возвращать указанные выше свойства

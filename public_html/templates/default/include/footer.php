@@ -11,42 +11,44 @@
                 alt="img"
               />
             </a> -->
-				<p class="footer__info-text">
-					<!--  <span>Construction</span> -->Мы изготавливаем и устанавлваем навесы любой сложности, любого назначения и размера, а также ворота откатные и распашные, беседки, заборы, козырьки и любые другие изделия из металла. Установка под ключ. Можем изготовить изделие по фото.
-				</p>
+				<div class="footer__info-text">
+					<!--  <span>Construction</span> --><?= $this->set['description'] ?>
+				</div>
 			</div>
 			<div class="footer__row">
 				<div class="footer__services">
 					<!-- <h6 class="footer__services-title">О нас</h6> -->
 					<ul style="font-size: 1.5em;" class="footer__services-list">
-						<li>О нас</li>
+						<li><a href="#about" class="menu-link">О нас</a></li>
 						<?php if (!empty($this->menu['catalog'])) : ?>
-							<li>Каталог</li>
+							<li><a href="#catalog" class="menu-link">Каталог</a></li>
 						<?php endif; ?>
-						<li>Ворота, заборы</li>
-						<li>Беседки, навесы</li>
+						<li><a href="#gallery" class="menu-link">Ворота, заборы</a></li>
+						<li><a href="#gallery2" class="menu-link">Беседки, навесы, козырьки</a></li>
 					</ul>
 				</div>
-				<div class="footer__worktime">
-					<h6 class="footer__worktime-title">График работы</h6>
-					<ul style="font-size: 16px;" class="footer__worktime-list">
-						<li>8:00 - 16:00</li>
 
-					</ul>
+				<div style="display: flex; flex-direction: column;">
+					<div class="footer__worktime">
+						<h6 class="footer__worktime-title">График работы</h6>
+						<div style="font-size: 16px; margin-bottom: 18px" class="footer__worktime-list"><?= $this->set['work_time'] ?></div>
+					</div>
+
+					<div class="footer__worktime">
+						<h6 class="footer__worktime-title">Адрес</h6>
+						<div style="font-size: 16px;" class="footer__worktime-list"><?= $this->set['address'] ?></div>
+					</div>
 				</div>
+
+
+
+
 				<div class="footer__social">
 					<div class="footer__social-title">Контакты</div>
-					<!-- <a
-                class="location"
-                href=""
-                target="_blank"
-                ><img
-                  class="location-icon"
-                  src="<?= PATH . TEMPLATE ?>assets/images/location.svg"
-                  alt="location"
-                />
-                <span class="location-text">ул. Гагарина 5Б г. Сочи</span>
-              </a> -->
+
+					<a class="phone" href="tel:+7 950 457 5654"><img class="phone-icon" src="<?= PATH . TEMPLATE ?>assets/images/phone.svg" alt="phone" />
+						<span class="phone-number">+7(949)569-57-19</span>
+					</a>
 					<a class="phone" href="tel:+7 950 457 5654"><img class="phone-icon" src="<?= PATH . TEMPLATE ?>assets/images/phone.svg" alt="phone" />
 						<span class="phone-number">+7(949)569-57-19</span>
 					</a>
@@ -69,21 +71,24 @@
 		</div>
 		<div class="footer__bottom">
 			<div class="footer__bottom-text">
+				Данный сайт носит исключительно информационный характер и ни при каких обстоятельствах не является публичной офертой, определяемой положениями Статьи 437 Гражданского кодекса РФ. Точные данные по ценам, возможности оформления и деталях заказа необходимо узнавать по телефону или написав нам.
+			</div>
+		</div>
 
-				Данный сайт носит исключительно информационный характер и ни при каких обстоятельствах не является публичной офертой, определяемой положениями Статьи 437 Гражданского кодекса РФ. Точные данные по ценам, возможности и деталях заказа необходимо узнавать по телефону или написав нам.
-			</div>
+		<div style="display: flex; border-top: 1px solid rgba(239, 239, 239, .24); align-items: center; justify-content: space-around; flex-wrap: wrap" class="footer__bottom">
+			<div class="footer__bottom-text"><?= $this->set['admin_name'] ?></div>
+			<div class="footer__bottom-text">ИНН <?= $this->set['admin_inn'] ?></div>
 		</div>
-		<div style="border-bottom: 1px solid rgba(239, 239, 239, .24);" class="footer__bottom">
+
+		<div style="border-bottom: 1px solid rgba(239, 239, 239, .24); padding-top: 0;" class="footer__bottom">
 			<div class="footer__bottom-text">
-				2025 г.
+				<?= date('Y') ?> г.
 			</div>
 		</div>
-		<!-- <div style="border-bottom: 1px solid rgba(239, 239, 239, .24);" class="footer__bottom">
-        <div class="footer__bottom-text">Дорохов Алексей Викторович</div>
-      </div> -->
+
 		<div class="footer__bottom">
 			<div class="footer__bottom-text">
-				Сделано в САЙТ ПОСТРОЕН
+				Сделано в <a style="font-weight: 700; color: #fd6b3e;" href="<?= $this->set['external_alias'] ?>">САЙТ ПОСТРОЕН</a>
 			</div>
 		</div>
 	</div>
@@ -92,7 +97,7 @@
 
 
 
-<a class="arrow-top-page-tel" href="#"></a>
+<a class="arrow-top-page-tel" href="tel:<?= preg_replace('/[^+\d]/', '', $this->set['phone']) ?>"></a>
 
 <div class="arrow" id="arrowTop" hidden>
 	<svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">

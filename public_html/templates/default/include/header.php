@@ -5,7 +5,12 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title>Ворота | Заборы | Навесы | Беседки | Донецк Макеевка ДНР</title>
+	<meta name="description" content="<?= $this->set['phone'] .  ' - ' . $this->set['description'] ?>">
+	<meta name="keywords" content="<?= $this->set['key_words'] ?>">
+
+	<link rel="icon" href="https://example.ru/favicon.ico" type="image/x-icon">
+
+	<title><?= $this->set['name'] ?></title>
 
 	<?php $this->getStyles() ?>
 
@@ -26,7 +31,7 @@
 		<header class="header">
 			<div class="container">
 				<div class="header__inner">
-					<h3 class="header__text">Изделия из металла в Донецке, Макеевке ДНР</h3>
+					<h3 class="header__text"><?= $this->set['top_title'] ?></h3>
 
 					<a class="phone" href="tel:"><img class="phone-icon" src="<?= PATH . TEMPLATE ?>assets/images/phone.svg" alt="phone" />
 						<span class="phone-number">+7(949)569-57-19</span>
@@ -53,7 +58,7 @@
 
 			<!-- BURGER -->
 			<div class="burger">
-				<a style="padding: 3px 7px" class="burger__logo" href="#">Ворота | Заборы | Навесы</br>Беседки | Козырьки | Донецк Макеевка ДНР</a>
+				<a style="padding: 3px 7px" class="burger__logo" href="#"><?= $this->set['name'] ?></a>
 				<!-- <a class="burger__logo" href="#"
           ><img src="<?= PATH . TEMPLATE ?>assets/images/Logo.svg" alt="logo"
         /></a> -->
@@ -123,12 +128,14 @@
 				<div class="container">
 					<div class="nav__inner">
 						<a style="padding: 3px 7px" href="#" class="logo">
-							Ворота | Заборы | Навесы</br>Беседки | Козырьки | Донецк Макеевка ДНР
+							<?= $this->set['name'] ?>
 						</a>
 						<ul style="flex-wrap: wrap; padding-left: 7px;" class="menu">
-							<li class="menu-item">
+
+							<!-- <li class="menu-item">
 								<a href="#" class="menu-link">Главная</a>
-							</li>
+							</li> -->
+
 							<li class="menu-item">
 								<a href="#about" class="menu-link">О нас</a>
 							</li>

@@ -71,12 +71,12 @@
 
 			<div class="benefits-item">
 				<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/systemtime.png" alt="картинка" class="benefits-item-icon">
-				<p class="benefits-item-desc">8:00 - 16:00</p>
+				<div class="benefits-item-desc"><?= $this->set['work_time'] ?></div>
 			</div>
 
 			<div class="benefits-item">
 				<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/Email.png" alt="картинка" class="benefits-item-icon">
-				<a href="email:alex29056d@gmail.com">alex29056d@gmail.com</a>
+				<a href="mailto:<?= $this->set['email'] ?>"><?= $this->set['email'] ?></a>
 			</div>
 
 		</div>
@@ -89,15 +89,15 @@
 		<div class="about__inner">
 			<div class="about__info">
 				<h3 class="about__info-title">О наc</h3>
-				<p style="font-size: 1.3em" class="about__text">
-					Мы изготавливаем и устанавлваем навесы любой сложности, любого назначения и размера, а также ворота откатные и распашные, беседки, заборы, козырьки и любые другие изделия из металла. Установка под ключ. Можем изготовить изделие по фото на заказ. выезд замерщика по области - платный!
+				<div style="font-size: 1.3em" class="about__text">
+					<?= $this->set['keywords'] ?>
+				</div>
+				<button>
+					<a href="<?= $this->set['telegram_alias'] ?>" class="about__btn order-btn">Связаться через Telegram</a>
+				</button>
 
-				<p style="font-size: 1.3em; color: crimson; font-weight: 700;" class="about__text">Качественные материалы, доступные цены, опытные мастера, выполнение заказа точно в срок.</p>
-				</p>
-
-				<button class="about__btn order-btn">Связаться через Telegram</button>
 			</div>
-			<img class="about__img" src="<?= PATH . TEMPLATE ?>assets/images//Дорохов/ворота распашные-3.jpg" alt="images" />
+			<img class="about__img" src="<?= $this->img($this->set['img']) ?>" alt="<?= $this->set['name'] ?>" />
 		</div>
 	</div>
 </section>
@@ -106,7 +106,10 @@
 
 	<section class="page__products products" id="catalog">
 		<div class="products__container container">
-			<h1 class="about__info-title section-about__title">Изготовим и установим забор, ворота, навес, беседку в Донецке, Макеевке, ДНР</h1>
+			<h1 class="about__info-title section-about__title"><?= $this->set['catalog_title'] ?></h1>
+
+			<div class="section-about__text"><?= $this->set['catalog_subtitle'] ?></div>
+
 			<div class="products__items">
 
 				<?php foreach ($this->menu['catalog'] as $item) : ?>
@@ -146,7 +149,7 @@
 		<div class="gallery-1" id="gallery">
 
 			<div class="section__header-01">
-				<h2 class="about__info-title section-about__title">Ворота, заборы, калитки в Донецке, Макеевке, ДНР</h2>
+				<h2 class="about__info-title section-about__title"><?= $this->set['foto_title'] ?></h2>
 				<p class="section-about__text"></p>
 			</div>
 			<div class="seven__block">
@@ -224,7 +227,7 @@
 		<div class="gallery-2" id="gallery2">
 
 			<div class="section__header-01" style="padding-top: 70px;">
-				<h2 class="about__info-title section-about__title">Беседки, навесы, козырьки в Донецке, Макеевке, ДНР</h2>
+				<h2 class="about__info-title section-about__title"><?= $this->set['foto_title_2'] ?></h2>
 				<!-- <p class="section-about__text">Пансионат для пожилых людей "Осень жизни" в г.Донецке. Учереждение для пожилых людей и инвалидов. Мы обеспечиваем уход и заботу в круглосуточном режиме. Производится мониторинг состояния здоровья. В пансионате постоянно дежурит младший медицинский персонал с большим опытом работы. Мы рады дарить людям заботу, тепло и уют, чтобы каждый чувствовал свою значимость и ценность в этом мире</p> -->
 
 			</div>
@@ -284,9 +287,9 @@
 		<div class="why-we__inner">
 			<div class="why-we__info">
 				<h4 class="why-we__title">Наши преимущества</h4>
-				<p class="why-we__text">
-					Нас выбирают за многолетний, успешный опыт создания и установки под ключ изделий из металла. Мы изготавливаем ворота, заборы, беседки, козырьки и другие изделия из металла с установкой под ключ. Работая с нами вы получаете качественно выполненную работу в установленные строки. Качество материалов гарантируем. Если у вас есть идеи каким должен быть ваш забор, ворота, беседка или навес, то наша профессиональная команда с удовольствием выполнит ваш индивидуальный проект с учётом всехтребований к металлоконструкциям и их установке.
-				</p>
+				<div class="why-we__text">
+					<?= $this->set['short_content'] ?>
+				</div>
 				<ul class="why-we__list">
 					<li class="why-we__item">
 						<h5 class="why-we__item-title">Мы на связи</h5>
@@ -308,7 +311,7 @@
 					</li>
 				</ul>
 			</div>
-			<img src="<?= PATH . TEMPLATE ?>assets/images/Дорохов/изделия из металла-мин.webp" alt="img" class="why-we__img" />
+			<img src="<?= $this->img($this->set['main_img']) ?>" alt="<?= $this->set['name'] . '-2' ?>" class="why-we__img" />
 		</div>
 	</div>
 </section>
