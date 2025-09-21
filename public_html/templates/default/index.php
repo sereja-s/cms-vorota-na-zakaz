@@ -1,62 +1,37 @@
 <!-- SWIPER TOP -->
-<div class="swiper swiper-top">
-	<div class="swiper-wrapper swiper-wrapper-top">
+<?php if (!empty($sales)) : ?>
 
-		<div class="swiper-slide swiper-slide-top">
-			<img
-				class="swiper-slide-top__img"
-				src="<?= PATH . TEMPLATE ?>assets/images/Дорохов/ворота распашные-1.jpg"
-				alt="img" />
-			<div class="swiper-slide-top__info">
-				<p class="swiper-slide-top__subtitle">
-					Изготовим и установим
-				</p>
-				<h3 class="swiper-slide-top__title">
-					<span>ворота, заборы, навесы, беседки, козырьки</span> <br />
-					и другие изделия из металла в Донецке, Макеевке, ДНР
-				</h3>
+	<div class="swiper swiper-top">
+		<div class="swiper-wrapper swiper-wrapper-top">
 
-			</div>
+			<?php foreach ($sales as $item) : ?>
+
+				<div class="swiper-slide swiper-slide-top">
+					<img
+						class="swiper-slide-top__img"
+						src="<?= $this->img($item['img']) ?>" alt="<?= $item['name'] ?>" />
+					<div class="swiper-slide-top__info">
+						<p class="swiper-slide-top__subtitle">
+							<?= $item['top_title'] ?>
+						</p>
+						<h3 class="swiper-slide-top__title">
+							<span><?= $item['name'] ?></span><br />
+							<?= $item['sub_title'] ?>
+						</h3>
+
+					</div>
+				</div>
+
+			<?php endforeach; ?>
+
 		</div>
-		<div class="swiper-slide sиwiper-slide-top">
-			<img
-				class="swiper-slide-top__img"
-				src="<?= PATH . TEMPLATE ?>assets/images/Дорохов/ворота распашные-2.jpg"
-				alt="img" />
-			<div class="swiper-slide-top__info">
-				<p class="swiper-slide-top__subtitle">
-					Изготовим и установим
-				</p>
-				<h3 class="swiper-slide-top__title">
-					<span>ворота, заборы, навесы, беседки, козырьки</span><br>
-					и другие изделия из металла
-				</h3>
+		<div class="swiper-pagination swiper-pagination-top"></div>
 
-			</div>
-		</div>
-		<div class="swiper-slide swiper-slide-top">
-			<img
-				class="swiper-slide-top__img"
-				src="<?= PATH . TEMPLATE ?>assets/images/Дорохов/ворота распашные-3.jpg"
-				alt="img" />
-			<div class="swiper-slide-top__info">
-				<p class="swiper-slide-top__subtitle">
-					Изготовим и установим
-				</p>
-				<h3 class="swiper-slide-top__title">
-					<span>ворота, заборы, калитки, навесы, беседки, козырьки</span> <br />
-					и другие изделия из металла
-				</h3>
-
-			</div>
-		</div>
-
-	</div>
-	<div class="swiper-pagination swiper-pagination-top"></div>
-
-	<!-- <div class="swiper-button-prev swiper-button-prev-top"></div>
+		<!-- <div class="swiper-button-prev swiper-button-prev-top"></div>
         <div class="swiper-button-next swiper-button-next-top"></div> -->
-</div>
+	</div>
+
+<?php endif; ?>
 
 <section style="margin: 0 auto; display: flex;" class="benefits">
 
@@ -65,8 +40,17 @@
 
 			<div class="benefits-item">
 				<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/logo_telephone.png" alt="картинка" class="benefits-item-icon">
-				<a href="tel:+79999999999">+7(949)569-57-19</a>
-				<a href="tel:+79999999999">+7(949)569-57-19</a>
+
+				<?php if (!empty($this->phones)) : ?>
+
+					<?php foreach ($this->phones as $phone) : ?>
+
+						<a href="tel:<?= preg_replace('/[^\+\d]/', '', $phone['name']) ?>"><?= $phone['name'] ?></a>
+
+					<?php endforeach; ?>
+
+				<?php endif; ?>
+
 			</div>
 
 			<div class="benefits-item">
@@ -152,129 +136,71 @@
 				<h2 class="about__info-title section-about__title"><?= $this->set['foto_title'] ?></h2>
 				<p class="section-about__text"></p>
 			</div>
-			<div class="seven__block">
-				<div class="seven__items">
-					<div style="padding-bottom: 15px;" class="seven__item">
-						<div class="seven__image">
-							<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/ворота распашные-1.jpg" alt="image">
-						</div>
-						<!-- <div class="seven__date">19 Jan 2023</div> -->
-						<div class="seven__subtitle">Ворота 1</div>
-						<div class="seven__text">Изготовлены методом ковки</div>
-						<!-- <div class="seven__buttons">
-									<div class="seven__btn">Plumbing</div>
-									<div class="seven__btn">Architecture</div>
-									<div class="seven__btn">Maintenance</div>
-							  </div> -->
-					</div>
-					<div style="padding-bottom: 15px;" class="seven__item">
-						<div class="seven__image">
-							<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/ворота распашные-2.jpg" alt="image">
-						</div>
-						<!-- <div class="seven__date">19 Jan 2023</div> -->
-						<div class="seven__subtitle">Ворота 2</div>
-						<div class="seven__text">Изготовили и установили забор и ворота под ключ</div>
-						<!-- <div class="seven__buttons">
-									<div class="seven__btn">Plumbing</div>
-									<div class="seven__btn">Architecture</div>
-									<div class="seven__btn">Maintenance</div>
-							  </div> -->
-					</div>
-					<div class="seven__item">
-						<div class="seven__image">
-							<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/ворота распашные-3.jpg" alt="image">
-						</div>
-						<!-- <div class="seven__date">19 Jan 2023</div> -->
-						<div class="seven__subtitle">Ворота 3</div>
-						<div class="seven__text">Выпонили заказ по проекту заказчика, изготовили и установили забор и ворота под ключ</div>
-						<!-- <div class="seven__buttons">
-									<div class="seven__btn">Plumbing</div>
-									<div class="seven__btn">Architecture</div>
-									<div class="seven__btn">Maintenance</div>
-							  </div> -->
-					</div>
-					<div class="seven__item">
-						<div class="seven__image">
-							<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/забор.jpg" alt="image">
-						</div>
-						<!-- <div class="seven__date">19 Jan 2023</div> -->
-						<div class="seven__subtitle">Забор</div>
-						<div class="seven__text">Быстро устанавливается и служит долгие годы</div>
-						<!-- <div class="seven__buttons">
-									<div class="seven__btn">Plumbing</div>
-									<div class="seven__btn">Architecture</div>
-									<div class="seven__btn">Maintenance</div>
-							  </div> -->
-					</div>
-					<div class="seven__item">
-						<div class="seven__image">
-							<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/калитка.jpg" alt="image">
-						</div>
-						<!-- <div class="seven__date">19 Jan 2023</div> -->
-						<div class="seven__subtitle">Калитка</div>
-						<div class="seven__text">Изготовлена из тогоже материала, что и забор</div>
-						<!-- <div class="seven__buttons">
-									<div class="seven__btn">Plumbing</div>
-									<div class="seven__btn">Architecture</div>
-									<div class="seven__btn">Maintenance</div>
-							  </div> -->
-					</div>
 
+			<?php if (!empty($foto_gallery)) : ?>
+
+				<div class="seven__block">
+					<div class="seven__items">
+
+						<?php foreach ($foto_gallery as $item) : ?>
+
+							<div class="seven__item">
+								<div class="seven__image">
+									<img src="<?= $this->img($item['img']) ?>" alt="<?= $item['name'] ?>">
+								</div>
+								<!-- <div class="seven__date">19 Jan 2023</div> -->
+								<div class="seven__subtitle"><?= $item['name'] ?></div>
+								<div class="seven__text"><?= $item['short_content'] ?></div>
+								<!-- <div class="seven__buttons">
+									<div class="seven__btn">Plumbing</div>
+									<div class="seven__btn">Architecture</div>
+									<div class="seven__btn">Maintenance</div>
+							  </div> -->
+							</div>
+
+						<?php endforeach; ?>
+
+					</div>
 				</div>
-			</div>
+
+			<?php endif; ?>
 
 		</div>
 		<div class="gallery-2" id="gallery2">
 
 			<div class="section__header-01" style="padding-top: 70px;">
 				<h2 class="about__info-title section-about__title"><?= $this->set['foto_title_2'] ?></h2>
-				<!-- <p class="section-about__text">Пансионат для пожилых людей "Осень жизни" в г.Донецке. Учереждение для пожилых людей и инвалидов. Мы обеспечиваем уход и заботу в круглосуточном режиме. Производится мониторинг состояния здоровья. В пансионате постоянно дежурит младший медицинский персонал с большим опытом работы. Мы рады дарить людям заботу, тепло и уют, чтобы каждый чувствовал свою значимость и ценность в этом мире</p> -->
+				<p class="section-about__text"></p>
 
 			</div>
-			<div class="seven__block">
-				<div class="seven__items">
-					<div class="seven__item">
-						<div class="seven__image">
-							<img src="./<?= PATH . TEMPLATE ?>assets/images//Дорохов/беседка.webp" alt="image">
-						</div>
-						<!-- <div class="seven__date">19 Jan 2023</div> -->
-						<div class="seven__subtitle">Беседка</div>
-						<div class="seven__text">Быстро устанавливается и служит долгие годы. Выполнена по проекту заказчика. Заказать беседку у нас - легко. Звоните, пишите</div>
-						<!-- <div class="seven__buttons">
-									<div class="seven__btn">Plumbing</div>
-									<div class="seven__btn">Architecture</div>
-									<div class="seven__btn">Maintenance</div>
-							  </div> -->
-					</div>
-					<div class="seven__item">
-						<div class="seven__image">
-							<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/навес-3.jpg" alt="image">
-						</div>
-						<!-- <div class="seven__date">19 Jan 2023</div> -->
-						<div class="seven__subtitle">Навес</div>
-						<div class="seven__text">Служит долгие годы</div>
-						<!-- <div class="seven__buttons">
-									<div class="seven__btn">Plumbing</div>
-									<div class="seven__btn">Architecture</div>
-									<div class="seven__btn">Maintenance</div>
-							  </div> -->
-					</div>
-					<div class="seven__item">
-						<div class="seven__image">
-							<img src="./<?= PATH . TEMPLATE ?>assets/images/Дорохов/козырёк.webp" alt="image">
-						</div>
-						<!-- <div class="seven__date">19 Jan 2023</div> -->
-						<div class="seven__subtitle">Козырёк</div>
-						<div class="seven__text">Мастерство даже в простом</div>
-						<!-- <div class="seven__buttons">
-									<div class="seven__btn">Plumbing</div>
-									<div class="seven__btn">Architecture</div>
-									<div class="seven__btn">Maintenance</div>
-							  </div> -->
-					</div>
 
+			<?php if (!empty($foto_gallery2)) : ?>
+
+				<div class="seven__block">
+					<div class="seven__items">
+
+						<?php foreach ($foto_gallery2 as $item) : ?>
+
+							<div class="seven__item">
+								<div class="seven__image">
+									<img src="<?= $this->img($item['img']) ?>" alt="<?= $item['name'] ?>">
+								</div>
+								<!-- <div class="seven__date">19 Jan 2023</div> -->
+								<div class="seven__subtitle"><?= $item['name'] ?></div>
+								<div class="seven__text"><?= $item['short_content'] ?></div>
+								<!-- <div class="seven__buttons">
+									<div class="seven__btn">Plumbing</div>
+									<div class="seven__btn">Architecture</div>
+									<div class="seven__btn">Maintenance</div>
+							  </div> -->
+							</div>
+
+						<?php endforeach; ?>
+
+					</div>
 				</div>
-			</div>
+
+			<?php endif; ?>
 
 		</div>
 
@@ -290,71 +216,54 @@
 				<div class="why-we__text">
 					<?= $this->set['short_content'] ?>
 				</div>
-				<ul class="why-we__list">
-					<li class="why-we__item">
-						<h5 class="why-we__item-title">Мы на связи</h5>
-						<p class="why-we__item-text">
-							Получить консультацию можно с 8:00 до 16:00
-						</p>
-					</li>
-					<li class="why-we__item">
-						<h5 class="why-we__item-title">Выезд замерщика</h5>
-						<p class="why-we__item-text">
-							в Донецке, Макеевке - бесплатно.
-						</p>
-					</li>
-					<li class="why-we__item">
-						<h5 class="why-we__item-title">Предоплата от 30%</h5>
-						<p class="why-we__item-text">
-							зависит от сложности заказа
-						</p>
-					</li>
-				</ul>
+
+				<?php if (!empty($advantages)) : ?>
+
+					<ul class="why-we__list">
+
+						<?php foreach ($advantages as $item) : ?>
+
+							<li class="why-we__item">
+								<h5 class="why-we__item-title"><?= $item['name'] ?></h5>
+								<p class="why-we__item-text">
+									<?= $item['short_content'] ?>
+								</p>
+							</li>
+
+						<?php endforeach; ?>
+
+					</ul>
+
+				<?php endif; ?>
+
 			</div>
 			<img src="<?= $this->img($this->set['main_img']) ?>" alt="<?= $this->set['name'] . '-2' ?>" class="why-we__img" />
 		</div>
 	</div>
 </section>
 
-<section class="question">
-	<div class="container">
-		<h4 style="padding-top: 25px;" class="why-we__title">Ответы на частые вопросы</h4>
-		<div data-spollers class="question__spollers spollers">
-			<details class="spollers__item">
-				<summary class="spollers__title"><span>Где находится ваше производство?</span></summary>
-				<div class="spollers__body">
-					<p>
-						Наши производства находятся в Донецке
-					</p>
+<?php if (!empty($questions)) : ?>
 
-				</div>
-			</details>
-			<details class="spollers__item">
-				<summary class="spollers__title"><span>С каким ассортиментом изделий из металла вы работаете?</span></summary>
-				<div class="spollers__body">
-					<p>
-						Мы производим широкий ассортимент изделий и многое
-						другое
-					</p>
-				</div>
-			</details>
-			<details class="spollers__item">
-				<summary class="spollers__title"><span>Какие мощности Вашего производства?</span></summary>
-				<div class="spollers__body">
-					<p>
-						Мощность при полной загрузке до 20 ед./мес.
-					</p>
-				</div>
-			</details>
-			<details class="spollers__item">
-				<summary class="spollers__title"><span>Какие сроки изготовления?</span></summary>
-				<div class="spollers__body">
-					<p>
-						Сроки изготовления к каждому заказу рассчитываются индивидуально, все зависит от объёма
-						работ. При необходимости выполняем срочные заказы.
-					</p>
-				</div>
-			</details>
+	<section class="question">
+		<div class="container">
+			<h4 style="padding-top: 25px;" class="why-we__title">Ответы на частые вопросы</h4>
+			<div data-spollers class="question__spollers spollers">
+
+				<?php foreach ($questions as $item) : ?>
+
+					<details class="spollers__item">
+						<summary class="spollers__title"><span><?= $item['name'] ?></span></summary>
+						<div class="spollers__body">
+							<p>
+								<?= $item['content'] ?>
+							</p>
+						</div>
+					</details>
+
+				<?php endforeach; ?>
+
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
+
+<?php endif; ?>

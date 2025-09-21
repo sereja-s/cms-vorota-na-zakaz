@@ -8,7 +8,7 @@
 	<meta name="description" content="<?= $this->set['phone'] .  ' - ' . $this->set['description'] ?>">
 	<meta name="keywords" content="<?= $this->set['key_words'] ?>">
 
-	<link rel="icon" href="https://example.ru/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="https://metallokonstruktsii-dorokhova.ru/favicon.ico" type="image/x-icon">
 
 	<title><?= $this->set['name'] ?></title>
 
@@ -33,26 +33,34 @@
 				<div class="header__inner">
 					<h3 class="header__text"><?= $this->set['top_title'] ?></h3>
 
-					<a class="phone" href="tel:"><img class="phone-icon" src="<?= PATH . TEMPLATE ?>assets/images/phone.svg" alt="phone" />
-						<span class="phone-number">+7(949)569-57-19</span>
-					</a>
-					<a class="phone" href="tel:"><img class="phone-icon" src="<?= PATH . TEMPLATE ?>assets/images/phone.svg" alt="phone" />
-						<span class="phone-number">+7(949)569-57-19</span>
-					</a>
-					<ul class="social">
-						<li class="social-item">
-							<a href="#" class="social-link"><img src="<?= PATH . TEMPLATE ?>assets/images/social-twitter.svg" alt="twitter" /></a>
-						</li>
-						<li class="social-item">
-							<a href="#" class="social-link"><img src="<?= PATH . TEMPLATE ?>assets/images/social-vk.svg" alt="vk" /></a>
-						</li>
-						<li class="social-item">
-							<a href="#" class="social-link"><img src="<?= PATH . TEMPLATE ?>assets/images/social-facebook.svg" alt="facebook" /></a>
-						</li>
-						<li class="social-item">
-							<a href="#" class="social-link"><img src="<?= PATH . TEMPLATE ?>assets/images/social-telegram.svg" alt="telegram" /></a>
-						</li>
-					</ul>
+					<?php if (!empty($this->phones)) : ?>
+
+						<?php foreach ($this->phones as $phone) : ?>
+
+							<a class="phone" href="tel:<?= preg_replace('/[^\+\d]/', '', $phone['name']) ?>"><img class="phone-icon" src="<?= PATH . TEMPLATE ?>assets/images/phone.svg" />
+								<span class="phone-number"><?= $phone['name'] ?></span>
+							</a>
+
+						<?php endforeach; ?>
+
+					<?php endif; ?>
+
+					<?php if (!empty($this->socials)) : ?>
+
+						<ul class="social">
+
+							<?php foreach ($this->socials as $item) : ?>
+
+								<li class="social-item">
+									<a href="<?= $this->alias($item['external_alias']) ?>" class="social-link"><img src="<?= $this->img($item['img']) ?>" alt="<?= $item['name'] ?>" /></a>
+								</li>
+
+							<?php endforeach; ?>
+
+						</ul>
+
+					<?php endif; ?>
+
 				</div>
 			</div>
 
@@ -75,23 +83,41 @@
 					<!-- <a>
             <span class="location-text">Изделия из металла в Донецке, Макеевке, ДНР</span>
           </a> -->
-					<a class="phone" href=""><img class="phone-icon" src="<?= PATH . TEMPLATE ?>assets/images/phone.svg" alt="phone" />
-						<span class="phone-number">+7(949)569-57-19</span>
-					</a>
-					<ul class="social">
-						<li class="social-item">
-							<a href="#" class="social-link"><img src="<?= PATH . TEMPLATE ?>assets/images/social-twitter.svg" alt="twitter" /></a>
-						</li>
-						<li class="social-item">
-							<a href="#" class="social-link"><img src="<?= PATH . TEMPLATE ?>assets/images/social-vk.svg" alt="vk" /></a>
-						</li>
-						<li class="social-item">
-							<a href="#" class="social-link"><img src="<?= PATH . TEMPLATE ?>assets/images/social-facebook.svg" alt="facebook" /></a>
-						</li>
-						<li class="social-item">
-							<a href="#" class="social-link"><img src="<?= PATH . TEMPLATE ?>assets/images/social-telegram.svg" alt="telegram" /></a>
-						</li>
-					</ul>
+
+					<?php if (!empty($this->phones)) : ?>
+
+
+
+						<div class="phones">
+
+							<?php foreach ($this->phones as $phone) : ?>
+
+								<a class="phone" href="tel:<?= preg_replace('/[^\+\d]/', '', $phone['name']) ?>"><img class="phone-icon" src="<?= PATH . TEMPLATE ?>assets/images/phone.svg" />
+									<span class="phone-number"><?= $phone['name'] ?></span>
+								</a>
+
+							<?php endforeach; ?>
+
+						</div>
+
+					<?php endif; ?>
+
+					<?php if (!empty($this->socials)) : ?>
+
+						<ul class="social">
+
+							<?php foreach ($this->socials as $item) : ?>
+
+								<li class="social-item">
+									<a href="<?= $this->alias($item['external_alias']) ?>" class="social-link"><img src="<?= $this->img($item['img']) ?>" alt="<?= $item['name'] ?>" /></a>
+								</li>
+
+							<?php endforeach; ?>
+
+						</ul>
+
+					<?php endif; ?>
+
 					<ul class="menu menu__burger">
 						<!-- <li class="menu-item burger__item">
 							<a href="#" class="menu-link">Главная</a>

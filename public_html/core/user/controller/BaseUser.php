@@ -81,10 +81,10 @@ abstract class BaseUser extends \core\base\controller\BaseController
 
 		// Выпуск №142
 		// получим данные для корзины (+Выпуск №147)
-		if (!$this->isAjax()/*  && !$this->isPost() */) {
+		/* if (!$this->isAjax()) {
 
 			$this->getCartData();
-		}
+		} */
 
 		// получим в св-во: $this->menu, в ячейку: ['catalog'], то что хранится в соответствующей таблице БД
 		$this->menu['catalog'] = $this->model->get('catalog', [
@@ -93,14 +93,14 @@ abstract class BaseUser extends \core\base\controller\BaseController
 		]);
 
 		// получим в св-во: $this->menu, в ячейку: ['information'], то что хранится в соответствующей таблице БД
-		$this->menu['information'] = $this->model->get('information', [
+		/* $this->menu['information'] = $this->model->get('information', [
 			'where' => ['visible' => 1, 'show_top_menu' => 1],
 			'order' => ['menu_position']
-		]);
-		$this->menu['information-bottom'] = $this->model->get('information', [
+		]); */
+		/* $this->menu['information-bottom'] = $this->model->get('information', [
 			'where' => ['visible' => 1],
 			'order' => ['menu_position']
-		]);
+		]); */
 
 		// получим в св-во: $this->socials, то что хранится в соответствующей таблице БД
 		$this->socials = $this->model->get('socials', [
@@ -112,14 +112,14 @@ abstract class BaseUser extends \core\base\controller\BaseController
 			'where' => ['visible' => 1],
 			'order' => ['menu_position']
 		]);
-		$this->emails = $this->model->get('emails', [
+		/* $this->emails = $this->model->get('emails', [
 			'where' => ['visible' => 1],
 			'order' => ['menu_position']
-		]);
-		$this->address = $this->model->get('address', [
+		]); */
+		/* $this->address = $this->model->get('address', [
 			'where' => ['visible' => 1],
 			'order' => ['menu_position']
-		]);
+		]); */
 	}
 
 	protected function outputData()
